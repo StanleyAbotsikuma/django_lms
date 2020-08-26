@@ -1,0 +1,73 @@
+{% extends 'base1.html' %}
+
+
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+    <div class="container">
+        <div class="card shadow-lg o-hidden border-0 my-5">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-flex">
+                        <div class="flex-grow-1 bg-register-image" style="background-image: url({% static 'assets/images/teacher1_img.jpg' %});">
+                            <div class="overlay_text_content" style=" background-color: rgba(0, 0, 0, 0.45);">
+                                <br>
+                                <br>
+                                <h2 style="font-weight: bolder;">Sign-Up </h2>
+                                <br>
+                                <hr color="#f9f9f9">
+                                <br>
+                                <br>
+                                <p>
+                                    This portal is a teacher only restriction page. Sign up as a teacher.
+                                </p>
+                                <p> Please make sure every information you are providing is accurate.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h4 class="text-dark mb-4">Create an Account!</h4>
+                            </div>
+                            <form class="user" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">{% render_field form.first_name|add_class:"form-control form-control-user" placeholder="First Name" %}</div>
+                                    <div class="col-sm-6">{% render_field form.last_name|add_class:"form-control form-control-user" placeholder="Last Name" %}</div>
+                                </div>
+                                <div class="form-group"> {% render_field form.email|add_class:"form-control form-control-user" placeholder="Email" aria-describedby="emailHelp" %}</div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">{% render_field form.password|attr:"type:password"|add_class:"form-control form-control-user" minlength="6"  placeholder="Password" %}</div>
+                                    <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="confirm_password" placeholder="Repeat Password" /></div>
+                                </div>
+                               
+                               <div class="form-group row form-control-user">
+                                <div class="col-sm-6 mb-3 mb-sm-0 file_upload">
+                                <div class="custom-file " >{% render_field form.profile_picture|add_class:"custom-file-input"  %}<label class="custom-file-label" for="id_profile_picture">Upload a Picture</label></div>
+                            </div>
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <img src="{% static 'assets/images/profile_pholder.png' %}"  id='preview_image'alt="" srcset="">
+                            </div>
+                               </div>
+
+                               <div class="form-group">{% render_field form.mobile|attr:"type:number"|add_class:"form-control form-control-user"   placeholder="Mobile Number" %}</div>
+
+                               <div class="form-group">{% render_field form.city|add_class:"form-control form-control-user"   placeholder="City" %}</div>
+
+                                <hr><button class="btn btn-primary btn-block text-white btn-user" type="submit">Register Account</button>
+                                
+                                <hr>
+                            </form>
+                            <div class="text-center"><a class="small" href="forgot-password.html">Forgot Password?</a></div>
+                            <div class="text-center"><a class="small" href="/teacher/">Already have an account? Login!</a></div>
+                            <hr/>
+                            <a href="/"> <button class="btn btn-success  align-right text-white btn-user back_btn"><i class="fa fa-arrow-left" ></i> &nbsp;&nbsp;Back</button></a>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  {% endblock %}

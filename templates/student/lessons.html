@@ -1,0 +1,103 @@
+{% extends 'base4.html' %}
+
+
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+
+
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/student/myclass/"><span>Class Rooms</span></a></li>
+        <li class="breadcrumb-item"><a href="#"><span>{{c_subject}}</span></a></li>
+
+        
+    </ol>
+    <h3 class="text-dark mb-1">{{c_subject}}</h3>
+</div>
+<div class="container-fluid" style="padding-top: 50px;padding-bottom: 50px;">
+
+
+</div>
+<div class="container-fluid" style=" background-color: #eaecf4!important;padding:  1em 0;">
+    
+            <div class="card">
+                <div class="card-body">
+                    <div id="content">
+                        <ul class="timeline">
+   <!--start lessons-->
+       {%for lesson in lessons%}
+       <li class="event">
+        <div class="container">
+<div class="jumbotron " style="background-color: white;word-wrap: break-word;">
+    <h1>{{lesson.lesson_title|upper}}</h1>
+    <p>{{lesson.lesson_description |safe }}
+    
+
+
+      <!--break-->
+      <br>
+      
+      <hr width="50%" align="center"> 
+      
+      <br>
+
+    <!--files start-->
+{% for files in lesson_files%}
+
+<!--cchecking the lesson and file-->
+{% if files.lesson_id|stringformat:'s' ==  lesson.lesson_id|stringformat:'s' %}
+
+
+<!--checking file type-->
+
+<!--Documents-->
+{% if files.type|stringformat:'s' == 'Documents'%}
+<p><a href="{{files.file.url}}">Lesson Document</a></p>
+{% endif %}
+
+<!--Videos-->
+{% if files.type|stringformat:'s' == 'Videos'%}
+<p>
+    <video src="{{files.file.url}}" controls style="width: 400px;"></video>
+    </p>
+{% endif %}
+
+<!--Pictures-->
+{% if files.type|stringformat:'s' == 'Pictures'%}
+<p><img src="{{files.file.url}}" style="width: 200px;"/></p>
+{% endif %}
+
+
+<!--Audios-->
+{% if files.type|stringformat:'s' == 'Audios'%}
+<p>
+    <audio src="{{files.file.url}}" controls></audio>
+</p>
+{% endif %}
+
+
+<!--end checking file type-->
+{% endif %}
+
+<!--end checking the file and lesson-->
+{% endfor %}
+<!--files end-->
+</div>
+
+        </div>
+        </li>
+       {%endfor%}
+                     </ul>
+                 </div>
+            </div>
+        
+    </div>
+    <!--end lessons-->
+</div>
+
+
+
+
+{% endblock %}
+

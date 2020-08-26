@@ -1,0 +1,41 @@
+{% extends 'base2.html' %}
+
+
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+
+
+
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/teacher/class/"><span>Class Rooms</span></a></li>
+        <li class="breadcrumb-item"><a href="/teacher/class/{{class}}"><span>{{class}}</span></a></li>
+        <li class="breadcrumb-item"><a href="#"><span>{{c_subject}}</span></a></li>
+
+        
+    </ol>
+    <h3 class="text-dark mb-1">{{c_subject}}</h3>
+</div>
+<div class="container-fluid" style="padding-top: 50px;padding-bottom: 50px;"> <a href="lesson/" style="height: fit-content;width: fit-content;"><button class="btn btn-primary " type="button" style="width: 150px;height: 50px;"><i class="fa fa-plus"></i>&nbsp; &nbsp;Add Lesson</button></a> 
+
+</div>
+<div class="container-fluid">
+   
+       {%for lesson in lessons%}
+        <div class="container">
+<div class="jumbotron lesson_s">
+    <h1>{{lesson.lesson_title}}</h1>
+    {{lesson.lesson_description |safe }}
+    </div>
+
+</div>
+       {%endfor%}
+    
+</div>
+
+
+
+
+{% endblock %}
+

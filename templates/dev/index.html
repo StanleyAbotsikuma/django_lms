@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title class="Developer's Window"></title>
+    <meta name="description" content="Trevillion Creation">
+    
+    {% load static %}
+    {% load widget_tweaks %}
+
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-all.min.css' %}">
+</head>
+<body>
+    <!--
+    <form  method="post" class="user" id="basic-form" >{% csrf_token %}
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0"> {% render_field form.first_name|add_class:"form-control form-control-user" placeholder="First Name" %}</div>
+            <div class="col-sm-6"> {% render_field form.last_name|add_class:"form-control form-control-user" placeholder="Last Name" %}</div>
+        </div>
+       
+        <div class="form-group"> {% render_field form.email|add_class:"form-control form-control-user" placeholder="Email" aria-describedby="emailHelp" %}</div>
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0"> {% render_field form.password|attr:"type:password"|add_class:"form-control form-control-user"   placeholder="Password" %}</div>
+            <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="confirm_password" minlength="6" placeholder="Confirm Password" name="password"></div>
+        </div>
+       
+        <button type="submit">Submit</button>
+    </form>
+-->
+<!--
+ <form action="" method="GET">{% csrf_token %}
+        {{form1.as_p}}
+        <button type="submit">Submit</button>
+    </form>
+
+    <form action="" method="post">{% csrf_token %}
+        {{form2.as_p}}
+        <button type="submit">Submit</button>
+    </form>
+-->
+
+
+    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+        {{form6.as_p}}
+        <button type="submit">Submit</button>
+    </form>
+
+
+    <form action="" method="GET">{% csrf_token %}
+        {{form7.as_p}}
+        <button type="submit">Submit</button>
+    </form>
+<!--   <form action="" method="post">{% csrf_token %}
+        {{form5.as_p}}
+        <button type="submit">Submit</button>
+    </form>
+-->
+ 
+
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/chart.min.js' %}"></script>
+<script src="{% static 'assets/js/bs-init.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script src="{% static 'assets/js/theme.js' %}"></script>
+<script src="{% static 'assets/js/trevillion_validation.js' %}">
+
+</script>
+</body>
+
+
+
+</html>
